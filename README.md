@@ -111,3 +111,7 @@ We specially thank to ming024 for providing FastSpeech2 pytorch-implentation. Th
 - [FastSpeech: Fast, Robust and Controllable Text to Speech](https://arxiv.org/abs/1905.09263), Y. Ren, *et al*.
 - [ming024's FastSpeech2 impelmentation](https://github.com/ming024/FastSpeech2)
 - [rishikksh20's VocGAN implementation](https://github.com/rishikksh20/VocGAN)
+
+# AiTer 연구실 자료 - GIST 대학 EECS 임수환(20175141)
+진햏한 실험에서 얻은 텐서보드 로그와 체크포인트입니다.
+https://drive.google.com/drive/folders/10eTG_Tg-B6kDuAa3df7E5S-iEmsEwFgm?usp=sharing
