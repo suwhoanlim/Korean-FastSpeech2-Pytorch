@@ -136,3 +136,11 @@ ckpt/
 results/
 eval/
 vocoder/pretrained_models/
+
+# Added for swl
+kss/
+pretrained_kss/
+venv39/
+vocoder/
+TextGrid.zip
+transcript.v.1.4.txt

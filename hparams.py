@@ -1,7 +1,8 @@
 import os
 ### kss ###
 dataset = "kss"
-data_path = os.path.join("/home/minsu/hdd3/dataset/", dataset)
+data_path = os.path.join("/home/soma1/문서/swm_team_filo/zolup/Korean-FastSpeech2-Pytorch/", dataset)
+# data_path = os.path.join("/home/minsu/hdd3/dataset/", dataset)
 meta_name = "transcript.v.1.4.txt"	# "transcript.v.1.4.txt" or "transcript.v.1.3.txt" 
 textgrid_name = "TextGrid.zip"
 
@@ -51,7 +52,9 @@ max_seq_len = 1000
 
 # Checkpoints and synthesis path
 preprocessed_path = os.path.join("./preprocessed/", dataset)
-checkpoint_path = os.path.join("./ckpt/", dataset)
+checkpoint_path = "./pretrained_kss/"
+# checkpoint_path = os.path.join("./pretrained_kss/", "checkpoint_350000.pth.tar")
+# checkpoint_path = os.path.join("./ckpt/", dataset)
 eval_path = os.path.join("./eval/", dataset)
 log_path = os.path.join("./log/", dataset)
 test_path = "./results"
