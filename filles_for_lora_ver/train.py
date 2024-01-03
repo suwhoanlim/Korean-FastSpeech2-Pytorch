@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
-import hparams as hp
+import aihub_hparams as hp
 import os
 
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
@@ -18,6 +18,7 @@ from optimizer import ScheduledOptim
 from evaluate import evaluate
 import utils
 import audio as Audio
+import loralib as lora
 
 def main(args):
     torch.manual_seed(0)
@@ -36,8 +37,13 @@ def main(args):
     num_param = utils.get_param_num(model)
     print('Number of FastSpeech2 Parameters:', num_param)
 
+    # lock lora
+    lora.mark_only_lora_as_trainable(model)
+    print("This sets requires_grad to False for all parameters without the string 'lora_' in their names")
+
     # Optimizer and loss
-    optimizer = torch.optim.Adam(model.parameters(), betas=hp.betas, eps=hp.eps, weight_decay = hp.weight_decay)
+    optimizer = torch.optim.Adam(model.parameters(), lr=hp.learning_rate_small, betas=hp.betas, eps=hp.eps, weight_decay = hp.weight_decay)
+    # optimizer = torch.optim.Adam(model.parameters(), betas=hp.betas, eps=hp.eps, weight_decay=hp.weight_decay)
     scheduled_optim = ScheduledOptim(optimizer, hp.decoder_hidden, hp.n_warm_up_step, args.restore_step)
     Loss = FastSpeech2Loss().to(device) 
     print("Optimizer and Loss Function Defined.")
@@ -45,10 +51,14 @@ def main(args):
     # Load checkpoint if exists
     checkpoint_path = os.path.join(hp.checkpoint_path)
     try:
+        print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
         checkpoint = torch.load(os.path.join(
             checkpoint_path, 'checkpoint_{}.pth.tar'.format(args.restore_step)))
-        model.load_state_dict(checkpoint['model'])
-        optimizer.load_state_dict(checkpoint['optimizer'])
+        print('abbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+        model.load_state_dict(checkpoint['model'], strict=False)
+        print('aaccccaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+        # optimizer.load_state_dict(checkpoint['optimizer'])
+        print('aadddsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
         print("\n---Model Restored at Step {}---\n".format(args.restore_step))
     except:
         print("\n---Start New Training---\n")
@@ -180,9 +190,14 @@ def main(args):
                 train_logger.add_scalar('Loss/energy_loss', e_l, current_step)
                 
                 if current_step % hp.save_step == 0:
-                    torch.save({'model': model.state_dict(), 'optimizer': optimizer.state_dict(
-                    )}, os.path.join(checkpoint_path, 'checkpoint_{}_{}.pth.tar'.format(current_step), epoch))
-                    print("save model at step {} epoch {} ...".format(current_step, epoch))
+                    # torch.save({'model': model.state_dict(), 'optimizer': optimizer.state_dict(
+                    # )}, os.path.join(checkpoint_path, 'checkpoint_{}.pth.tar'.format(current_step)))
+                    torch.save({'lora': lora.lora_state_dict(model), 'optimizer': optimizer.state_dict(
+                    )}, os.path.join(checkpoint_path, 'checkpoint_lora_{}.pth.tar'.format(current_step)))
+                    
+                    # torch.save(lora.lora_state_dict(model), checkpoint_path)
+
+                    print("save model at step {} ...".format(current_step))
 
                 if current_step % hp.eval_step == 0:
                     model.eval()

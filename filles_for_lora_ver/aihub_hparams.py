@@ -1,20 +1,13 @@
 import os
 ### kss ###
-dataset = "kss"
-data_path = os.path.join("/home/soma1/문서/swm_team_filo/zolup/Korean-FastSpeech2-Pytorch/", dataset)
+dataset = "aihub"
+dataset_name = "9042_G2A6E7_KSB"
+data_path = os.path.join("/home/soma1/문서/swm_team_filo/zolup/Korean-FastSpeech2-Pytorch-swl/Korean-FastSpeech2-Pytorch", dataset)
 # data_path = os.path.join("/home/minsu/hdd3/dataset/", dataset)
-meta_name = "transcript.v.1.4.txt"	# "transcript.v.1.4.txt" or "transcript.v.1.3.txt" 
-textgrid_name = "TextGrid.zip"
-
-# dataset = "aihub"
-# dataset_name = "0220_G1A3E7_BYK"
-# data_path = os.path.join("/home/soma1/문서/swm_team_filo/zolup/Korean-FastSpeech2-Pytorch-swl/Korean-FastSpeech2-Pytorch", dataset)
-# # data_path = os.path.join("/home/minsu/hdd3/dataset/", dataset)
-# meta_name = "BYK.txt"	# "transcript.v.1.4.txt" or "transcript.v.1.3.txt" 
-# # textgrid_name = "TextGrid_kss.zip"
-# tot_textgrid = 400
-# textgrid_name = "textgrid_0220_G1A3E7_BYK.zip"
-
+meta_name = "KSB.txt"	# "transcript.v.1.4.txt" or "transcript.v.1.3.txt" 
+# textgrid_name = "TextGrid_kss.zip"
+tot_textgrid = 400
+textgrid_name = "9042_G2A6E7_KSB.zip"
 
 ### set GPU number ###
 train_visible_devices = "0"
@@ -25,7 +18,7 @@ text_cleaners = ['korean_cleaners']
 
 # Audio and mel
 ### kss ###
-sampling_rate = 22050
+sampling_rate = 24000
 filter_length = 1024
 hop_length = 256
 win_length = 1024
@@ -61,28 +54,18 @@ variance_predictor_dropout = 0.5
 max_seq_len = 1000
 
 # Checkpoints and synthesis path
-preprocessed_path = os.path.join("./preprocessed/", dataset)
+preprocessed_path = os.path.join("./preprocessed_aihub/", dataset)
 checkpoint_path = "./pretrained_kss/"
 # checkpoint_path = os.path.join("./pretrained_kss/", "checkpoint_350000.pth.tar")
 # checkpoint_path = os.path.join("./ckpt/", dataset)
-eval_path = os.path.join("./eval/", dataset)
-log_path = os.path.join("./log/", dataset)
+eval_path = os.path.join("./eval_aihub/", dataset)
+log_path = os.path.join("./log_aihub/", dataset)
 test_path = "./results"
-
-
-# # Checkpoints and synthesis path
-# preprocessed_path = os.path.join("./preprocessed_aihub/", dataset)
-# checkpoint_path = "./pretrained_kss/"
-# # checkpoint_path = os.path.join("./pretrained_kss/", "checkpoint_350000.pth.tar")
-# # checkpoint_path = os.path.join("./ckpt/", dataset)
-# eval_path = os.path.join("./eval_aihub/", dataset)
-# log_path = os.path.join("./log_aihub/", dataset)
-# test_path = "./results"
 
 
 # Optimizer
 batch_size = 16
-epochs = 1000
+epochs = 20
 n_warm_up_step = 4000
 grad_clip_thresh = 1.0
 acc_steps = 1
@@ -102,9 +85,11 @@ log_offset = 1.
 
 
 # Save, log and synthesis
-save_step = 10000
+save_step = 1000
 eval_step = 1000
 eval_size = 256
 log_step = 1000
 clear_Time = 20
 
+learning_rate = 1e-3
+learning_rate_small = 1e-5

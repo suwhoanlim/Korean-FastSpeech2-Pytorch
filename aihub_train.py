@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
-import hparams as hp
+import aihub_hparams as hp
 import os
 
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
@@ -27,6 +27,7 @@ def main(args):
     
     # Get dataset
     dataset = Dataset("train.txt") 
+    print(dataset.__len__)
     loader = DataLoader(dataset, batch_size=hp.batch_size**2, shuffle=True, 
         collate_fn=dataset.collate_fn, drop_last=True, num_workers=0)
 
@@ -37,7 +38,7 @@ def main(args):
     print('Number of FastSpeech2 Parameters:', num_param)
 
     # Optimizer and loss
-    optimizer = torch.optim.Adam(model.parameters(), betas=hp.betas, eps=hp.eps, weight_decay = hp.weight_decay)
+    optimizer = torch.optim.Adam(model.parameters(), lr=hp.learning_rate_small, betas=hp.betas, eps=hp.eps, weight_decay = hp.weight_decay)
     scheduled_optim = ScheduledOptim(optimizer, hp.decoder_hidden, hp.n_warm_up_step, args.restore_step)
     Loss = FastSpeech2Loss().to(device) 
     print("Optimizer and Loss Function Defined.")
@@ -88,11 +89,14 @@ def main(args):
     # Training
     model = model.train()
     for epoch in range(hp.epochs):
+        # print('herer?')
         # Get Training Loader
         total_step = hp.epochs * len(loader) * hp.batch_size
-
+        print(len(loader))
         for i, batchs in enumerate(loader):
+            # print('hi?')
             for j, data_of_batch in enumerate(batchs):
+                # print('there?')
                 start_time = time.perf_counter()
 
                 current_step = i*hp.batch_size + j + args.restore_step + epoch*len(loader)*hp.batch_size + 1
@@ -181,8 +185,8 @@ def main(args):
                 
                 if current_step % hp.save_step == 0:
                     torch.save({'model': model.state_dict(), 'optimizer': optimizer.state_dict(
-                    )}, os.path.join(checkpoint_path, 'checkpoint_{}_{}.pth.tar'.format(current_step), epoch))
-                    print("save model at step {} epoch {} ...".format(current_step, epoch))
+                    )}, os.path.join(checkpoint_path, 'checkpoint_{}.pth.tar'.format(current_step)))
+                    print("save model at step {} ...".format(current_step))
 
                 if current_step % hp.eval_step == 0:
                     model.eval()
@@ -210,7 +214,7 @@ def main(args):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--restore_step', type=int, default=0)
+    parser.add_argument('--restore_step', type=int, default=350000)
     args = parser.parse_args()
 
     main(args)

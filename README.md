@@ -1,3 +1,7 @@
+Modified version of HGU-Korean FastSpeech2 Implementation
+
+Codes were added to fit AIHUB data and LoRA ver. of AIHUB dataset
+
 # Korean FastSpeech 2 - Pytorch Implementation
 
 ![](./assets/model.png)

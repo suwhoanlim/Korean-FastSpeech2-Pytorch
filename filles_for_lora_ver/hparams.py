@@ -6,16 +6,6 @@ data_path = os.path.join("/home/soma1/문서/swm_team_filo/zolup/Korean-FastSpee
 meta_name = "transcript.v.1.4.txt"	# "transcript.v.1.4.txt" or "transcript.v.1.3.txt" 
 textgrid_name = "TextGrid.zip"
 
-# dataset = "aihub"
-# dataset_name = "0220_G1A3E7_BYK"
-# data_path = os.path.join("/home/soma1/문서/swm_team_filo/zolup/Korean-FastSpeech2-Pytorch-swl/Korean-FastSpeech2-Pytorch", dataset)
-# # data_path = os.path.join("/home/minsu/hdd3/dataset/", dataset)
-# meta_name = "BYK.txt"	# "transcript.v.1.4.txt" or "transcript.v.1.3.txt" 
-# # textgrid_name = "TextGrid_kss.zip"
-# tot_textgrid = 400
-# textgrid_name = "textgrid_0220_G1A3E7_BYK.zip"
-
-
 ### set GPU number ###
 train_visible_devices = "0"
 synth_visible_devices = "0"
@@ -68,16 +58,6 @@ checkpoint_path = "./pretrained_kss/"
 eval_path = os.path.join("./eval/", dataset)
 log_path = os.path.join("./log/", dataset)
 test_path = "./results"
-
-
-# # Checkpoints and synthesis path
-# preprocessed_path = os.path.join("./preprocessed_aihub/", dataset)
-# checkpoint_path = "./pretrained_kss/"
-# # checkpoint_path = os.path.join("./pretrained_kss/", "checkpoint_350000.pth.tar")
-# # checkpoint_path = os.path.join("./ckpt/", dataset)
-# eval_path = os.path.join("./eval_aihub/", dataset)
-# log_path = os.path.join("./log_aihub/", dataset)
-# test_path = "./results"
 
 
 # Optimizer

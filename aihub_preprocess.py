@@ -1,6 +1,6 @@
 import os
-from data import kss
-import hparams as hp
+from data import aihub_kss as kss
+import aihub_hparams as hp
 import time
 
 def write_metadata(train, val, out_dir):
@@ -39,8 +39,10 @@ def main():
     if not os.path.exists(os.path.join(out_dir, textgrid_name.replace(".zip", ""))):
         os.system('unzip {} -d {}'.format(os.path.join(out_dir, textgrid_name), out_dir))
 
-
+    # TODO: fix this part to fit the aihub code
+    #####
     if "kss" in hp.dataset:
+        print('ccc')
         # kss version 1.3
         if "v.1.3" in meta:
             if not os.path.exists(os.path.join(in_dir, "wavs_bak")):
@@ -49,14 +51,18 @@ def main():
 
         # kss version 1.4
         if "v.1.4" in meta:
+            print('aaa')
             if not os.path.exists(os.path.join(in_dir, "wavs_bak")):
+                print('bbb')
                 os.makedirs(os.path.join(in_dir, "wavs"))
                 os.system("mv {} {}".format(os.path.join(in_dir, "../", meta), os.path.join(in_dir)))
                 for i in range(1, 5) : os.system("mv {} {}".format(os.path.join(in_dir, str(i)), os.path.join(in_dir, "wavs")))
                 os.system("mv {} {}".format(os.path.join(in_dir, "wavs"), os.path.join(in_dir, "wavs_bak")))
                 os.makedirs(os.path.join(in_dir, "wavs"))
-
-        train, val = kss.build_from_path(in_dir, out_dir, meta)
+            else:
+                print('ddd')
+    #####
+    train, val = kss.build_from_path(in_dir, out_dir, meta)
 
     write_metadata(train, val, out_dir)
     

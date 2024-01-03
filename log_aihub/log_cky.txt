@@ -1,0 +1,195 @@
+(venv39) soma1@soma1-Z490-UD:~/문서/swm_team_filo/zolup/Korean-FastSpeech2-Pytorch-swl/Korean-FastSpeech2-Pytorch_lora$ python aihub_train.py --restore_step 350000
+/home/soma1/문서/swm_team_filo/zolup/Korean-FastSpeech2-Pytorch-swl/Korean-FastSpeech2-Pytorch_lora/audio/stft.py:41: FutureWarning: Pass size=1024 as keyword args. From version 0.10 passing these as positional arguments will result in an error
+  fft_window = pad_center(fft_window, filter_length)
+/home/soma1/문서/swm_team_filo/zolup/Korean-FastSpeech2-Pytorch-swl/Korean-FastSpeech2-Pytorch_lora/audio/stft.py:128: FutureWarning: Pass sr=22050, n_fft=1024, n_mels=80, fmin=0, fmax=8000 as keyword args. From version 0.10 passing these as positional arguments will result in an error
+  mel_basis = librosa_mel_fn(
+Model Has Been Defined
+Number of FastSpeech2 Parameters: 29318723
+This sets requires_grad to False for all parameters without the string 'lora_' in their names
+Optimizer and Loss Function Defined.
+
+---Model Restored at Step 350000---
+
+
+Epoch [2/20], Step [351000/14720]:
+Total Loss: 0.4466, Mel Loss: 0.0673, Mel PostNet Loss: 0.0667, Duration Loss: 0.0799, F0 Loss: 0.1185, Energy Loss: 0.1142;
+Time Used: 103.981s, Estimated Time Remaining: -30992.690s.
+save lora model at step 351000 ...
+done
+
+FastSpeech2 Step 351000,
+Duration Loss: 0.5729057341814041
+F0 Loss: 0.5848648789174417
+Energy Loss: 0.44465985061491237
+Mel Loss: 0.30003980569103184
+Mel Postnet Loss: 0.3000791896792019
+
+Epoch [3/20], Step [352000/14720]:
+Total Loss: 0.5122, Mel Loss: 0.0631, Mel PostNet Loss: 0.0627, Duration Loss: 0.0699, F0 Loss: 0.1709, Energy Loss: 0.1456;
+Time Used: 208.775s, Estimated Time Remaining: -24558.035s.
+save lora model at step 352000 ...
+done
+
+FastSpeech2 Step 352000,
+Duration Loss: 0.5732649775112376
+F0 Loss: 0.5825097946559682
+Energy Loss: 0.4448697921984336
+Mel Loss: 0.29946914797320084
+Mel Postnet Loss: 0.29956252193626237
+
+Epoch [5/20], Step [353000/14720]:
+Total Loss: 0.4261, Mel Loss: 0.0675, Mel PostNet Loss: 0.0668, Duration Loss: 0.0667, F0 Loss: 0.1183, Energy Loss: 0.1067;
+Time Used: 314.553s, Estimated Time Remaining: -28659.922s.
+save lora model at step 353000 ...
+done
+
+FastSpeech2 Step 353000,
+Duration Loss: 0.5735600678359761
+F0 Loss: 0.580608267994488
+Energy Loss: 0.4449725076556206
+Mel Loss: 0.29949748976265683
+Mel Postnet Loss: 0.2995760357555221
+
+Epoch [6/20], Step [354000/14720]:
+Total Loss: 0.4662, Mel Loss: 0.0595, Mel PostNet Loss: 0.0588, Duration Loss: 0.0639, F0 Loss: 0.1417, Energy Loss: 0.1424;
+Time Used: 419.143s, Estimated Time Remaining: -27590.400s.
+save lora model at step 354000 ...
+done
+
+FastSpeech2 Step 354000,
+Duration Loss: 0.5736719808157753
+F0 Loss: 0.579768502536942
+Energy Loss: 0.44494563998544917
+Mel Loss: 0.299466559992117
+Mel Postnet Loss: 0.2995709220276159
+
+Epoch [7/20], Step [355000/14720]:
+Total Loss: 0.4767, Mel Loss: 0.0695, Mel PostNet Loss: 0.0689, Duration Loss: 0.0767, F0 Loss: 0.1389, Energy Loss: 0.1227;
+Time Used: 525.912s, Estimated Time Remaining: -26790.276s.
+save lora model at step 355000 ...
+done
+
+FastSpeech2 Step 355000,
+Duration Loss: 0.573749872691491
+F0 Loss: 0.579119519714047
+Energy Loss: 0.44493914351743813
+Mel Loss: 0.29931461723411784
+Mel Postnet Loss: 0.2993433600401177
+
+Epoch [9/20], Step [356000/14720]:
+Total Loss: 0.4585, Mel Loss: 0.0616, Mel PostNet Loss: 0.0610, Duration Loss: 0.0707, F0 Loss: 0.1480, Energy Loss: 0.1172;
+Time Used: 631.991s, Estimated Time Remaining: -27604.754s.
+save lora model at step 356000 ...
+done
+
+FastSpeech2 Step 356000,
+Duration Loss: 0.5737387178575292
+F0 Loss: 0.57917850026313
+Energy Loss: 0.44496289114741716
+Mel Loss: 0.29923660110901384
+Mel Postnet Loss: 0.29934465446892905
+
+Epoch [10/20], Step [357000/14720]:
+Total Loss: 0.4466, Mel Loss: 0.0664, Mel PostNet Loss: 0.0657, Duration Loss: 0.0720, F0 Loss: 0.1279, Energy Loss: 0.1146;
+Time Used: 738.345s, Estimated Time Remaining: -31866.303s.
+save lora model at step 357000 ...
+done
+
+FastSpeech2 Step 357000,
+Duration Loss: 0.5737338863751468
+F0 Loss: 0.5788002005394768
+Energy Loss: 0.44493601208224015
+Mel Loss: 0.2991512829766554
+Mel Postnet Loss: 0.2992651466937626
+
+Epoch [11/20], Step [358000/14720]:
+Total Loss: 0.4777, Mel Loss: 0.0614, Mel PostNet Loss: 0.0608, Duration Loss: 0.0569, F0 Loss: 0.1680, Energy Loss: 0.1306;
+Time Used: 842.470s, Estimated Time Remaining: -29852.774s.
+save lora model at step 358000 ...
+done
+
+FastSpeech2 Step 358000,
+Duration Loss: 0.5737307369709015
+F0 Loss: 0.5787715017795563
+Energy Loss: 0.44485443655182333
+Mel Loss: 0.2991100462043987
+Mel Postnet Loss: 0.29916850433630104
+
+Epoch [13/20], Step [359000/14720]:
+Total Loss: 0.4568, Mel Loss: 0.0690, Mel PostNet Loss: 0.0683, Duration Loss: 0.0776, F0 Loss: 0.1358, Energy Loss: 0.1061;
+Time Used: 949.130s, Estimated Time Remaining: -30409.196s.
+save lora model at step 359000 ...
+done
+
+FastSpeech2 Step 359000,
+Duration Loss: 0.5737405796261394
+F0 Loss: 0.5785843822009423
+Energy Loss: 0.44483211943331885
+Mel Loss: 0.2991025737103294
+Mel Postnet Loss: 0.2990943110164474
+
+Epoch [14/20], Step [360000/14720]:
+Total Loss: 0.4556, Mel Loss: 0.0613, Mel PostNet Loss: 0.0605, Duration Loss: 0.0697, F0 Loss: 0.1245, Energy Loss: 0.1396;
+Time Used: 1054.039s, Estimated Time Remaining: -24147.283s.
+save lora model at step 360000 ...
+done
+
+FastSpeech2 Step 360000,
+Duration Loss: 0.5737004008363275
+F0 Loss: 0.5787012761130053
+Energy Loss: 0.4448164666400236
+Mel Loss: 0.2989121283240178
+Mel Postnet Loss: 0.2990242275683319
+
+Epoch [15/20], Step [361000/14720]:
+Total Loss: 0.4477, Mel Loss: 0.0673, Mel PostNet Loss: 0.0666, Duration Loss: 0.0768, F0 Loss: 0.1173, Energy Loss: 0.1197;
+Time Used: 1159.878s, Estimated Time Remaining: -29486.077s.
+save lora model at step 361000 ...
+done
+
+FastSpeech2 Step 361000,
+Duration Loss: 0.5736939311027527
+F0 Loss: 0.5786363990867839
+Energy Loss: 0.44479062671170516
+Mel Loss: 0.2990780376336154
+Mel Postnet Loss: 0.29915500191204686
+
+Epoch [17/20], Step [362000/14720]:
+Total Loss: 0.3921, Mel Loss: 0.0597, Mel PostNet Loss: 0.0590, Duration Loss: 0.0588, F0 Loss: 0.1099, Energy Loss: 0.1046;
+Time Used: 1266.291s, Estimated Time Remaining: -28465.307s.
+save lora model at step 362000 ...
+done
+
+FastSpeech2 Step 362000,
+Duration Loss: 0.5736830006627476
+F0 Loss: 0.5784811070736717
+Energy Loss: 0.4448530599474907
+Mel Loss: 0.29901005283874627
+Mel Postnet Loss: 0.2991519153994672
+
+Epoch [18/20], Step [363000/14720]:
+Total Loss: 0.4585, Mel Loss: 0.0666, Mel PostNet Loss: 0.0660, Duration Loss: 0.0798, F0 Loss: 0.1304, Energy Loss: 0.1157;
+Time Used: 1373.099s, Estimated Time Remaining: -30435.176s.
+save lora model at step 363000 ...
+done
+
+FastSpeech2 Step 363000,
+Duration Loss: 0.5736293924205443
+F0 Loss: 0.5787151596125435
+Energy Loss: 0.4448966401464799
+Mel Loss: 0.29909790153889093
+Mel Postnet Loss: 0.2991478237159112
+
+Epoch [20/20], Step [364000/14720]:
+Total Loss: 0.4223, Mel Loss: 0.0612, Mel PostNet Loss: 0.0604, Duration Loss: 0.0602, F0 Loss: 0.1203, Energy Loss: 0.1202;
+Time Used: 1467.402s, Estimated Time Remaining: -17717.150s.
+save lora model at step 364000 ...
+done
+
+FastSpeech2 Step 364000,
+Duration Loss: 0.5736917651751462
+F0 Loss: 0.5783286563613835
+Energy Loss: 0.4447964123066734
+Mel Loss: 0.29887112514937625
+Mel Postnet Loss: 0.2989608213743743
+

@@ -1,0 +1,193 @@
+(venv39) soma1@soma1-Z490-UD:~/문서/swm_team_filo/zolup/Korean-FastSpeech2-Pytorch-swl/Korean-FastSpeech2-Pytorch$ python aihub_train.py --restore_step 350000
+/home/soma1/문서/swm_team_filo/zolup/Korean-FastSpeech2-Pytorch-swl/Korean-FastSpeech2-Pytorch/audio/stft.py:41: FutureWarning: Pass size=1024 as keyword args. From version 0.10 passing these as positional arguments will result in an error
+  fft_window = pad_center(fft_window, filter_length)
+/home/soma1/문서/swm_team_filo/zolup/Korean-FastSpeech2-Pytorch-swl/Korean-FastSpeech2-Pytorch/audio/stft.py:128: FutureWarning: Pass sr=22050, n_fft=1024, n_mels=80, fmin=0, fmax=8000 as keyword args. From version 0.10 passing these as positional arguments will result in an error
+  mel_basis = librosa_mel_fn(
+Model Has Been Defined
+Number of FastSpeech2 Parameters: 29187651
+Optimizer and Loss Function Defined.
+
+---Model Restored at Step 350000---
+
+
+Epoch [2/20], Step [351000/14720]:
+Total Loss: 0.4267, Mel Loss: 0.0668, Mel PostNet Loss: 0.0662, Duration Loss: 0.0697, F0 Loss: 0.1210, Energy Loss: 0.1030;
+Time Used: 92.880s, Estimated Time Re	maining: -24678.868s.
+save model at step 351000 ...
+done
+
+FastSpeech2 Step 351000,
+Duration Loss: 0.5767392463543836
+F0 Loss: 0.5762470561791869
+Energy Loss: 0.4446313714279848
+Mel Loss: 0.2953411936759949
+Mel Postnet Loss: 0.29529209434986115
+
+Epoch [3/20], Step [352000/14720]:
+Total Loss: 0.5497, Mel Loss: 0.0628, Mel PostNet Loss: 0.0623, Duration Loss: 0.0763, F0 Loss: 0.1948, Energy Loss: 0.1534;
+Time Used: 189.917s, Estimated Time Remaining: -20251.997s.
+save model at step 352000 ...
+done
+
+FastSpeech2 Step 352000,
+Duration Loss: 0.571988978806664
+F0 Loss: 0.5671882449704058
+Energy Loss: 0.4406035516191931
+Mel Loss: 0.296778371448026
+Mel Postnet Loss: 0.2969417905106264
+
+Epoch [5/20], Step [353000/14720]:
+Total Loss: 0.4268, Mel Loss: 0.0672, Mel PostNet Loss: 0.0665, Duration Loss: 0.0660, F0 Loss: 0.1153, Energy Loss: 0.1118;
+Time Used: 286.716s, Estimated Time Remaining: -23372.446s.
+save model at step 353000 ...
+done
+
+FastSpeech2 Step 353000,
+Duration Loss: 0.577491737463895
+F0 Loss: 0.5761250042740036
+Energy Loss: 0.44321327700334434
+Mel Loss: 0.30184751617557865
+Mel Postnet Loss: 0.30197562430711355
+
+Epoch [6/20], Step [354000/14720]:
+Total Loss: 0.4623, Mel Loss: 0.0595, Mel PostNet Loss: 0.0589, Duration Loss: 0.0633, F0 Loss: 0.1349, Energy Loss: 0.1457;
+Time Used: 382.742s, Estimated Time Remaining: -21179.867s.
+save model at step 354000 ...
+done
+
+FastSpeech2 Step 354000,
+Duration Loss: 0.5734727049575132
+F0 Loss: 0.5808531440356198
+Energy Loss: 0.4461711202474201
+Mel Loss: 0.2953418637899792
+Mel Postnet Loss: 0.2954240434748285
+
+Epoch [7/20], Step [355000/14720]:
+Total Loss: 0.4941, Mel Loss: 0.0705, Mel PostNet Loss: 0.0699, Duration Loss: 0.0766, F0 Loss: 0.1500, Energy Loss: 0.1272;
+Time Used: 480.189s, Estimated Time Remaining: -23197.294s.
+save model at step 355000 ...
+done
+
+FastSpeech2 Step 355000,
+Duration Loss: 0.5723118133404675
+F0 Loss: 0.5679937232943142
+Energy Loss: 0.4391199332826278
+Mel Loss: 0.29368600687559915
+Mel Postnet Loss: 0.29372773516704054
+
+Epoch [9/20], Step [356000/14720]:
+Total Loss: 0.4557, Mel Loss: 0.0619, Mel PostNet Loss: 0.0612, Duration Loss: 0.0664, F0 Loss: 0.1485, Energy Loss: 0.1177;
+Time Used: 576.895s, Estimated Time Remaining: -21941.525s.
+save model at step 356000 ...
+done
+
+FastSpeech2 Step 356000,
+Duration Loss: 0.5725476329817492
+F0 Loss: 0.5812622755765915
+Energy Loss: 0.4419623950825018
+Mel Loss: 0.30330291346592064
+Mel Postnet Loss: 0.303390764795682
+
+Epoch [10/20], Step [357000/14720]:
+Total Loss: 0.4451, Mel Loss: 0.0661, Mel PostNet Loss: 0.0655, Duration Loss: 0.0712, F0 Loss: 0.1277, Energy Loss: 0.1146;
+Time Used: 673.477s, Estimated Time Remaining: -26638.080s.
+save model at step 357000 ...
+done
+
+FastSpeech2 Step 357000,
+Duration Loss: 0.5740015199955772
+F0 Loss: 0.5828234312288901
+Energy Loss: 0.442225703421761
+Mel Loss: 0.29924924890784654
+Mel Postnet Loss: 0.2994094451560694
+
+Epoch [11/20], Step [358000/14720]:
+Total Loss: 0.4769, Mel Loss: 0.0614, Mel PostNet Loss: 0.0609, Duration Loss: 0.0574, F0 Loss: 0.1741, Energy Loss: 0.1231;
+Time Used: 769.536s, Estimated Time Remaining: -24001.057s.
+save model at step 358000 ...
+done
+
+FastSpeech2 Step 358000,
+Duration Loss: 0.5726946881588768
+F0 Loss: 0.5710395675371674
+Energy Loss: 0.4411434272632879
+Mel Loss: 0.30317536500446934
+Mel Postnet Loss: 0.3032782892970478
+
+Epoch [13/20], Step [359000/14720]:
+Total Loss: 0.4496, Mel Loss: 0.0692, Mel PostNet Loss: 0.0685, Duration Loss: 0.0734, F0 Loss: 0.1319, Energy Loss: 0.1066;
+Time Used: 866.555s, Estimated Time Remaining: -24768.492s.
+save model at step 359000 ...
+done
+
+FastSpeech2 Step 359000,
+Duration Loss: 0.5732973629937452
+F0 Loss: 0.5716715165797401
+Energy Loss: 0.4454644252272213
+Mel Loss: 0.3000203776447212
+Mel Postnet Loss: 0.3000374589772785
+
+Epoch [14/20], Step [360000/14720]:
+Total Loss: 0.4406, Mel Loss: 0.0627, Mel PostNet Loss: 0.0620, Duration Loss: 0.0714, F0 Loss: 0.1252, Energy Loss: 0.1193;
+Time Used: 962.730s, Estimated Time Remaining: -21254.336s.
+save model at step 360000 ...
+done
+
+FastSpeech2 Step 360000,
+Duration Loss: 0.5755426270120284
+F0 Loss: 0.5733648678835701
+Energy Loss: 0.44107212608351426
+Mel Loss: 0.29706818522775874
+Mel Postnet Loss: 0.2972511570243275
+
+Epoch [15/20], Step [361000/14720]:
+Total Loss: 0.4369, Mel Loss: 0.0673, Mel PostNet Loss: 0.0667, Duration Loss: 0.0765, F0 Loss: 0.1147, Energy Loss: 0.1118;
+Time Used: 1059.658s, Estimated Time Remaining: -23611.111s.
+save model at step 361000 ...
+done
+
+FastSpeech2 Step 361000,
+Duration Loss: 0.572985060951289
+F0 Loss: 0.5816464424133301
+Energy Loss: 0.4463001962970285
+Mel Loss: 0.3002467718632782
+Mel Postnet Loss: 0.300301984171657
+
+Epoch [17/20], Step [362000/14720]:
+Total Loss: 0.3976, Mel Loss: 0.0592, Mel PostNet Loss: 0.0585, Duration Loss: 0.0603, F0 Loss: 0.1087, Energy Loss: 0.1109;
+Time Used: 1156.093s, Estimated Time Remaining: -22636.018s.
+save model at step 362000 ...
+done
+
+FastSpeech2 Step 362000,
+Duration Loss: 0.5698702843750224
+F0 Loss: 0.5771868141258464
+Energy Loss: 0.44453143766697717
+Mel Loss: 0.29551760611288685
+Mel Postnet Loss: 0.2956025067935972
+
+Epoch [18/20], Step [363000/14720]:
+Total Loss: 0.4495, Mel Loss: 0.0672, Mel PostNet Loss: 0.0666, Duration Loss: 0.0755, F0 Loss: 0.1239, Energy Loss: 0.1164;
+Time Used: 1252.785s, Estimated Time Remaining: -23499.902s.
+save model at step 363000 ...
+done
+
+FastSpeech2 Step 363000,
+Duration Loss: 0.5725235895198935
+F0 Loss: 0.5725317430846831
+Energy Loss: 0.44114325809128146
+Mel Loss: 0.2931891333530931
+Mel Postnet Loss: 0.2931801207801875
+
+Epoch [20/20], Step [364000/14720]:
+Total Loss: 0.4081, Mel Loss: 0.0610, Mel PostNet Loss: 0.0603, Duration Loss: 0.0566, F0 Loss: 0.1201, Energy Loss: 0.1102;
+Time Used: 1349.144s, Estimated Time Remaining: -23681.170s.
+save model at step 364000 ...
+done
+
+FastSpeech2 Step 364000,
+Duration Loss: 0.5756537291933509
+F0 Loss: 0.5773637391188565
+Energy Loss: 0.4395087628680117
+Mel Loss: 0.30496853655752015
+Mel Postnet Loss: 0.3048783301868859

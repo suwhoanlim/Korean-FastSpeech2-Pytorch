@@ -6,7 +6,7 @@ import pyworld as pw
 import torch
 import audio as Audio
 from utils import get_alignment, standard_norm, remove_outlier, average_by_duration
-import hparams as hp
+import aihub_hparams as hp
 from jamo import h2j
 import codecs
 
@@ -29,23 +29,28 @@ def build_from_path(in_dir, out_dir, meta):
     scalers = [StandardScaler(copy=False) for _ in range(3)]	# scalers for mel, f0, energy
 
     n_frames = 0
+    count = 0
+    cont = 0
     
     with open(os.path.join(in_dir, meta), encoding='utf-8') as f: # part where it uses transcript.txt
         for index, line in enumerate(f):
 
             parts = line.strip().split('|')
-            basename, text = parts[0], parts[3]
+            basename, text = parts[0], parts[1] # migh wanna change this
 
             ret = process_utterance(in_dir, out_dir, basename, scalers)
 
             if ret is None:
+                cont += 1
                 continue
             else:
                 info, n = ret
+                count += 1
             
             # using first basename to be a validation group 
             # for aihub, let's use file name to decide this
-            if basename[0] == '1':  
+            # use 1/4 of data as validation
+            if hp.tot_textgrid / 4 > count:  
                 val.append(info)
             else:
                 train.append(info)
@@ -54,7 +59,7 @@ def build_from_path(in_dir, out_dir, meta):
                 print("Done %d" % index)
 
             n_frames += n
-
+    print(count, cont)
     param_list = [np.array([scaler.mean_, scaler.scale_]) for scaler in scalers]
     param_name_list = ['mel_stat.npy', 'f0_stat.npy', 'energy_stat.npy']
     [np.save(os.path.join(out_dir, param_name), param_list[idx]) for idx, param_name in enumerate(param_name_list)]
@@ -63,18 +68,25 @@ def build_from_path(in_dir, out_dir, meta):
 
 
 def process_utterance(in_dir, out_dir, basename, scalers):
-    wav_bak_basename=basename.replace('.wav','')
-    basename = wav_bak_basename[2:]
-    wav_bak_path = os.path.join(in_dir, "wavs_bak", "{}.wav".format(wav_bak_basename))
-    wav_path = os.path.join(in_dir, 'wavs', '{}.wav'.format(basename))
+    # wav_bak_basename=basename.replace('.wav','')
+    # basename = wav_bak_basename[2:]
+    wav_bak_path = os.path.join(in_dir, "wavs_bak", '{}'.format(hp.dataset_name), "{}_{}.wav".format(hp.dataset_name, basename))
+    wav_path = os.path.join(in_dir, 'wavs', '{}_{}.wav'.format(hp.dataset_name, basename))
 
-    tg_path = os.path.join(out_dir, 'TextGrid', '{}.TextGrid'.format(basename)) 
+    tg_path = os.path.join(out_dir, '{}'.format(hp.textgrid_name[:-4]), '{}_{}.TextGrid'.format(hp.dataset_name, basename)) 
+    print(tg_path)
     if not os.path.exists(tg_path):
         return None
+    else:
+        print('asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf')
 
     # Convert kss data into PCM encoded wavs
     if not os.path.isfile(wav_path):
-        os.system("ffmpeg -i {} -ac 1 -ar 22050 {}".format(wav_bak_path, wav_path))
+        print('asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf it')
+        os.system("ffmpeg -i {} -ac 1 -ar 24000 {}".format(wav_bak_path, wav_path)) #FIXED FOR AIHUB
+        print('done')
+        # os.system("ffmpeg -i {} -ac 1 -ar 22050 {}".format(wav_bak_path, wav_path))
+
 
     # Get alignments
     textgrid = tgt.io.read_textgrid(tg_path)
@@ -124,7 +136,10 @@ def process_utterance(in_dir, out_dir, basename, scalers):
     mel_scaler, f0_scaler, energy_scaler = scalers
 
     mel_scaler.partial_fit(mel_spectrogram.T)
-    f0_scaler.partial_fit(f0[f0!=0].reshape(-1, 1))
+    non_zero_f0 = f0[f0 != 0]
+    if non_zero_f0.size > 0:
+        f0_scaler.partial_fit(non_zero_f0.reshape(-1, 1))
+    # f0_scaler.partial_fit(f0[f0!=0].reshape(-1, 1))
     energy_scaler.partial_fit(energy[energy != 0].reshape(-1, 1))
 
     return '|'.join([basename, text]), mel_spectrogram.shape[1]

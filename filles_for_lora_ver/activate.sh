@@ -1,0 +1,1 @@
+source ../Korean-FastSpeech2-Pytorch/venv39/bin/activate

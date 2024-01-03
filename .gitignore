@@ -112,6 +112,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+venv39/
 
 # Spyder project settings
 .spyderproject
@@ -144,3 +145,12 @@ venv39/
 vocoder/
 TextGrid.zip
 transcript.v.1.4.txt
+
+AIHUB/
+aihub/
+aihub_byk/
+aihub_cky/
+aihub_jmh/
+
+AIHUB_DATA/
+PREPROCESSED_DATA/
